@@ -1,0 +1,15 @@
+node_modules
+dist
+.git
+.env
+.env.local
+.pytest_cache
+__pycache__
+*.pyc
+tests
+coverage
+htmlcov
+pgdata
+*.egg-info
+.venv
+venv

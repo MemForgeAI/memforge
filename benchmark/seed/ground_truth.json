@@ -1,0 +1,519 @@
+[
+  {
+    "query_id": 1,
+    "query": "What programming languages does Alex use?",
+    "category": "basic_recall",
+    "expected_memories": [
+      {"content_match": "TypeScript", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Go", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Go for the auth", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["basic_recall"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 2,
+    "query": "What's Alex's preferred code editor?",
+    "category": "temporal_supersession",
+    "expected_memories": [
+      {"content_match": "Cursor", "required": true, "rank": 1, "should_be_superseded": false},
+      {"content_match": "VS Code", "required": false, "rank": null, "should_be_superseded": true}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["temporal_supersession", "preference_recall"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 3,
+    "query": "What testing framework does Alex prefer?",
+    "category": "temporal_supersession",
+    "expected_memories": [
+      {"content_match": "Vitest", "required": true, "rank": 1, "should_be_superseded": false},
+      {"content_match": "Jest", "required": false, "rank": null, "should_be_superseded": true}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["temporal_supersession"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 4,
+    "query": "What team does Alex work on?",
+    "category": "temporal_supersession",
+    "expected_memories": [
+      {"content_match": "auth team", "required": true, "rank": 1, "should_be_superseded": false},
+      {"content_match": "payments service", "required": false, "rank": null, "should_be_superseded": true}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["temporal_supersession"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 5,
+    "query": "What are Alex's debugging preferences?",
+    "category": "basic_recall",
+    "expected_memories": [
+      {"content_match": "strict null checks", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "connection pool exhaustion", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "AbortController", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["basic_recall"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 6,
+    "query": "What does Alex think about REST vs GraphQL?",
+    "category": "temporal_supersession",
+    "expected_memories": [
+      {"content_match": "GraphQL", "required": true, "rank": 1, "should_be_superseded": false},
+      {"content_match": "REST", "required": false, "rank": null, "should_be_superseded": true}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["temporal_supersession"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 7,
+    "query": "Does Alex use tabs or spaces?",
+    "category": "temporal_supersession",
+    "expected_memories": [
+      {"content_match": "2-space", "required": true, "rank": 1, "should_be_superseded": false},
+      {"content_match": "tabs", "required": false, "rank": null, "should_be_superseded": true}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["temporal_supersession"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 8,
+    "query": "What's Alex's stance on ORMs?",
+    "category": "temporal_supersession",
+    "expected_memories": [
+      {"content_match": "raw SQL", "required": true, "rank": 1, "should_be_superseded": false},
+      {"content_match": "Prisma", "required": false, "rank": null, "should_be_superseded": true}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["temporal_supersession"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 9,
+    "query": "What CI/CD pipeline does Alex's team use?",
+    "category": "basic_recall",
+    "expected_memories": [
+      {"content_match": "GitHub Actions", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Kubernetes", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Helm", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["basic_recall"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 10,
+    "query": "What deployment strategy does Alex prefer?",
+    "category": "basic_recall",
+    "expected_memories": [
+      {"content_match": "Kubernetes", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Helm", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "ECS", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["basic_recall"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 11,
+    "query": "What technologies does Alex's current team use?",
+    "category": "graph_traversal",
+    "expected_memories": [
+      {"content_match": "Go", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "raw SQL", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "auth team", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["graph_traversal"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 12,
+    "query": "Who has Alex collaborated with on TypeScript projects?",
+    "category": "graph_traversal",
+    "expected_memories": [
+      {"content_match": "Jordan", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["graph_traversal"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 13,
+    "query": "What databases has Alex worked with?",
+    "category": "graph_traversal",
+    "expected_memories": [
+      {"content_match": "PostgreSQL", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Redis", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["graph_traversal"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 14,
+    "query": "What's the connection between Alex and the auth service?",
+    "category": "graph_traversal",
+    "expected_memories": [
+      {"content_match": "auth team", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Phase 1", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["graph_traversal"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 15,
+    "query": "List all projects Alex has mentioned",
+    "category": "graph_traversal",
+    "expected_memories": [
+      {"content_match": "atlas-api", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "payments", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "auth", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["graph_traversal"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 16,
+    "query": "Prepare a developer profile summary for Alex",
+    "category": "context_assembly",
+    "expected_memories": [
+      {"content_match": "TypeScript", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Go", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "auth team", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Cursor", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "llm_judge",
+    "tests": ["context_assembly"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 17,
+    "query": "What should I know before pair programming with Alex?",
+    "category": "context_assembly",
+    "expected_memories": [
+      {"content_match": "Vim keybindings", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "strict mode", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "guard clauses", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "Cursor", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "llm_judge",
+    "tests": ["context_assembly"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 18,
+    "query": "Alex is starting a new Go project -- what's relevant?",
+    "category": "context_assembly",
+    "expected_memories": [
+      {"content_match": "auth team uses Go instead of TypeScript", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Alex moved from the payments team to the auth team", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "raw SQL with pgx", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "llm_judge",
+    "tests": ["context_assembly"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 19,
+    "query": "What recurring bugs has Alex dealt with?",
+    "category": "context_assembly",
+    "expected_memories": [
+      {"content_match": "nullable return", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "connection pool", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "TOCTOU", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "memory leak", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["context_assembly"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 20,
+    "query": "Help Alex set up a new development environment",
+    "category": "context_assembly",
+    "expected_memories": [
+      {"content_match": "Cursor", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "Vim keybindings", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "pnpm", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "ESLint", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "llm_judge",
+    "tests": ["context_assembly"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 21,
+    "query": "What does Alex think about testing?",
+    "category": "ambiguous_query",
+    "expected_memories": [
+      {"content_match": "Vitest", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "if it's not tested, it doesn't ship", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "80% test coverage", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "llm_judge",
+    "tests": ["ambiguous_query"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 22,
+    "query": "When did Alex last mention Kubernetes?",
+    "category": "temporal_precision",
+    "expected_memories": [
+      {"content_match": "Kubernetes", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Helm", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["temporal_precision"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 23,
+    "query": "What safety-critical practices does Alex follow?",
+    "category": "importance_weighted",
+    "expected_memories": [
+      {"content_match": "CI pipeline", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "branch protection", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "error handling", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["importance_weighted"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 24,
+    "query": "What's irrelevant to Alex's coding work?",
+    "category": "noise_filtering",
+    "expected_memories": [
+      {"content_match": "Tanaka Ramen", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "steak dinner", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "work-from-home", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["noise_filtering"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 25,
+    "query": "Summarize everything about Alex in 500 tokens",
+    "category": "token_stress",
+    "expected_memories": [
+      {"content_match": "TypeScript", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "auth team", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Go", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "llm_judge",
+    "tests": ["token_stress"],
+    "token_budget": 500
+  },
+  {
+    "query_id": 26,
+    "query": "What patterns emerge from Alex's debugging sessions?",
+    "category": "cross_session",
+    "expected_memories": [
+      {"content_match": "strict null checks", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "connection pool exhaustion", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "race condition", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "memory leak", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "llm_judge",
+    "tests": ["cross_session"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 27,
+    "query": "How has Alex's tech stack evolved over the last 3 months?",
+    "category": "cross_session",
+    "expected_memories": [
+      {"content_match": "Alex switched from VS Code to Cursor", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Alex switched from Jest to Vitest", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Alex switched from REST to GraphQL", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "team switched from tabs to 2-space indentation", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Alex dropped Prisma for the auth service, using raw SQL", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "llm_judge",
+    "tests": ["cross_session"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 28,
+    "query": "What are the common themes in Alex's code review feedback?",
+    "category": "cross_session",
+    "expected_memories": [
+      {"content_match": "Alex does not allow empty catch blocks", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "Alex prefers early returns (guard clauses) over nested if/else", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "error handling first, then tests", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "functional components with hooks", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "llm_judge",
+    "tests": ["cross_session"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 29,
+    "query": "What does Alex think about machine learning?",
+    "category": "negative_precision",
+    "expected_memories": [],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["noise_rejection"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 30,
+    "query": "What's Alex's favorite restaurant?",
+    "category": "noise_ranking",
+    "expected_memories": [
+      {"content_match": "ramen", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "steak", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["noise_ranking"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 31,
+    "query": "What did Alex say about the weather?",
+    "category": "noise_ranking",
+    "expected_memories": [
+      {"content_match": "work from home", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["noise_ranking"],
+    "token_budget": 2000
+  },
+  {
+    "query_id": 32,
+    "query": "What does Alex's team know about the auth service?",
+    "category": "multi_agent",
+    "expected_memories": [
+      {"content_match": "Identity Provider", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "gRPC", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "P99", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["multi_agent"],
+    "token_budget": 2000,
+    "include_shared": true,
+    "task_id": "auth-migration"
+  },
+  {
+    "query_id": 33,
+    "query": "What private debugging notes has the coding assistant stored?",
+    "category": "multi_agent",
+    "expected_memories": [
+      {"content_match": "connection pool exhaustion", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "memory leak", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "TOCTOU race condition", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["multi_agent"],
+    "token_budget": 2000,
+    "agent_id": "coding-assistant"
+  },
+  {
+    "query_id": 34,
+    "query": "What task-specific context exists for the auth migration?",
+    "category": "multi_agent",
+    "expected_memories": [
+      {"content_match": "Phase 1", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Phase 2", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Phase 3", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Phase 4", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["multi_agent"],
+    "token_budget": 2000,
+    "task_id": "auth-migration"
+  },
+  {
+    "query_id": 35,
+    "query": "Everything about Alex",
+    "category": "stress_test",
+    "expected_memories": [
+      {"content_match": "TypeScript", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "auth team", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Go", "required": true, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["stress_test"],
+    "token_budget": 500
+  },
+  {
+    "query_id": 36,
+    "query": "Everything about Alex",
+    "category": "stress_test",
+    "expected_memories": [
+      {"content_match": "TypeScript", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "auth team", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Go", "required": true, "rank": null, "should_be_superseded": false},
+      {"content_match": "Cursor", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "Vitest", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "GraphQL", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "Kubernetes", "required": false, "rank": null, "should_be_superseded": false},
+      {"content_match": "PostgreSQL", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["stress_test"],
+    "token_budget": 4000
+  },
+  {
+    "query_id": 37,
+    "query": "What's the single most important thing to know about Alex?",
+    "category": "stress_test",
+    "expected_memories": [
+      {"content_match": "push directly to main", "required": true, "rank": 1, "should_be_superseded": false},
+      {"content_match": "not tested", "required": false, "rank": null, "should_be_superseded": false}
+    ],
+    "expected_absent": [],
+    "scoring_method": "string_match",
+    "tests": ["stress_test", "importance_weighted"],
+    "token_budget": 2000
+  }
+]
