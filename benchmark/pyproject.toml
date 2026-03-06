@@ -1,0 +1,23 @@
+[project]
+name = "memforge-benchmark"
+version = "0.1.0"
+description = "Benchmark suite comparing MemForge vs Mem0 vs Graphiti memory systems"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.28",
+    "mem0ai>=0.1",
+    "graphiti-core>=0.3",
+    "anthropic>=0.40",
+    "tiktoken>=0.8",
+    "pydantic>=2.10",
+    "pytest>=8.0",
+    "pytest-asyncio>=0.24",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["benchmark"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"

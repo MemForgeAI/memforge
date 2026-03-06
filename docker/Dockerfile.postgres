@@ -1,0 +1,36 @@
+# Custom PostgreSQL 17 image with pgvector 0.8+ and Apache AGE 1.7
+# Base: pgvector/pgvector:pg17 (includes pgvector already)
+# Adds: Apache AGE compiled from source
+
+FROM pgvector/pgvector:0.8.2-pg17 AS builder
+
+# Install build dependencies for AGE
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    libreadline-dev \
+    zlib1g-dev \
+    flex \
+    bison \
+    git \
+    ca-certificates \
+    postgresql-server-dev-17 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Clone and build Apache AGE for PG17
+RUN git clone --branch release/PG17/1.7.0 --depth 1 \
+    https://github.com/apache/age.git /tmp/age \
+    && cd /tmp/age \
+    && make \
+    && make install
+
+# --- Runtime stage ---
+FROM pgvector/pgvector:0.8.2-pg17
+
+# Copy AGE extension files from builder
+COPY --from=builder /usr/lib/postgresql/17/lib/age.so /usr/lib/postgresql/17/lib/
+COPY --from=builder /usr/share/postgresql/17/extension/age* /usr/share/postgresql/17/extension/
+
+# Preload AGE shared library
+RUN echo "shared_preload_libraries = 'age'" >> /usr/share/postgresql/postgresql.conf.sample
+
+EXPOSE 5432

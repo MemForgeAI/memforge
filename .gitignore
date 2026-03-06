@@ -1,0 +1,50 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Build output
+dist/
+*.js.map
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Test
+coverage/
+.pytest_cache/
+htmlcov/
+
+# Python build artifacts
+*.egg-info/
+*.egg
+build/
+
+# Docker
+pgdata/
+
+# Secrets
+credentials.json
+*.pem
+*.key
+
+# Claude Code
+.claude/
+CLAUDE.md
+
+# Internal dev docs
+docs/plans/
+
+# Benchmark stress results
+benchmark/results/stress/
